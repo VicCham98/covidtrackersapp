@@ -30,6 +30,10 @@ const CardStat = () => {
             <Title style={{color: 'gray'}}>{data.muertes}</Title>
             <Paragraph style={{color: 'gray'}}>Muertes</Paragraph>
           </View>
+          <View>
+            <Title style={{color: 'gray'}}>{data.muertes}</Title>
+            <Paragraph style={{color: 'gray'}}>Muertes</Paragraph>
+          </View>
         </View>
       </Card.Content>
     </Card>
