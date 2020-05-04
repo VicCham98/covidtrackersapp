@@ -2,37 +2,39 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Button, Card, Paragraph, Title} from 'react-native-paper';
 
-const CardStat = () => {
-  const data = {
-    id: 1,
-    pais: 'Peru',
-    confirmado: '3152000',
-    recuperado: '151156',
-    muertes: '61611',
-  };
-
+const CardStat = ({
+  title,
+  confirmed,
+  recovered,
+  deaths,
+  active,
+  name1,
+  name2,
+  name3,
+  name4,
+}) => {
   return (
     <Card style={styles.cardContainer}>
       <Card.Content>
-        <Title>Casos de COVID-19 en el mundo {data.pais}</Title>
+        <Title>{title}</Title>
         <View style={styles.stats}>
-          <View>
-            <Title style={{color: 'red'}}>{data.confirmado}</Title>
-            <Paragraph style={{color: 'red'}}>Confirmados</Paragraph>
+          <View style={{margin: 5, alignItems: 'center'}}>
+            <Title style={{color: 'red'}}>{confirmed}</Title>
+            <Paragraph style={{color: 'red'}}>{name1}</Paragraph>
           </View>
-          <View>
-            <Title style={{color: 'green'}}>{data.recuperado}</Title>
-            <Paragraph style={{color: 'green'}}>Recuperados</Paragraph>
+          <View style={{margin: 5, alignItems: 'center'}}>
+            <Title style={{color: 'green'}}>{recovered}</Title>
+            <Paragraph style={{color: 'green'}}>{name2}</Paragraph>
           </View>
         </View>
         <View style={styles.stats}>
-          <View>
-            <Title style={{color: 'gray'}}>{data.muertes}</Title>
-            <Paragraph style={{color: 'gray'}}>Muertes</Paragraph>
+          <View style={{margin: 5, alignItems: 'center'}}>
+            <Title style={{color: 'gray'}}>{deaths}</Title>
+            <Paragraph style={{color: 'gray'}}>{name3}</Paragraph>
           </View>
-          <View>
-            <Title style={{color: 'gray'}}>{data.muertes}</Title>
-            <Paragraph style={{color: 'gray'}}>Muertes</Paragraph>
+          <View style={{margin: 5, alignItems: 'center'}}>
+            <Title style={{color: 'blue'}}>{active}</Title>
+            <Paragraph style={{color: 'blue'}}>{name4}</Paragraph>
           </View>
         </View>
       </Card.Content>
@@ -48,6 +50,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 1,
     elevation: 5,
+    alignSelf: 'center',
   },
   stats: {
     flexDirection: 'row',

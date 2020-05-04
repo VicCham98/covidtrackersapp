@@ -1,16 +1,22 @@
-import React, {useState, Fragment} from 'react';
-import {View, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {View, StyleSheet, FlatList, Text} from 'react-native';
 import {Picker} from '@react-native-community/picker';
 
-const PickerCountry = () => {
-  const [language, setLanguage] = useState('java');
+const PickerCountry = ({data, language, setLanguage}) => {
   return (
     <View style={styles.container}>
       <Picker
         selectedValue={language}
         onValueChange={(itemValue, itemIndex) => setLanguage(itemValue)}>
-        <Picker.Item label="Java" value="java" />
-        <Picker.Item label="JavaScript" value="js" />
+        {data.map((country, index) => {
+          return (
+            <Picker.Item
+              key={index}
+              label={country.country}
+              value={country.countryInfo.iso2}/>
+            )
+          })
+        }
       </Picker>
     </View>
   );
