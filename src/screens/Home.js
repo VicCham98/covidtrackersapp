@@ -3,11 +3,15 @@ import {View, Text, StyleSheet} from 'react-native';
 import Header from '../components/Header';
 import CardStat from '../components/CardStat';
 import {DataContext} from '../contexts/DataContext';
+import LineChartCountry from '../components/LineChartCountry';
 
 const Home = ({navigation, route}) => {
-  const {currentCountry} = useContext(DataContext);
+  const {currentCountry, currentCountryHistory} = useContext(DataContext);
 
-  if (typeof currentCountry !== 'undefined'){
+  if (
+    typeof currentCountry !== 'undefined' &&
+    typeof currentCountryHistory !== 'undefined'
+  ) {
     return (
       <View>
         <Header navigation={navigation} route={route} />
@@ -26,6 +30,7 @@ const Home = ({navigation, route}) => {
             />
           </View>
         </View>
+        <LineChartCountry currentCountryHistory={currentCountryHistory} />
       </View>
     );
   } else {

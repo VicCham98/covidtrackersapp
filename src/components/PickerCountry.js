@@ -2,18 +2,18 @@ import React, {useState} from 'react';
 import {View, StyleSheet, FlatList, Text} from 'react-native';
 import {Picker} from '@react-native-community/picker';
 
-const PickerCountry = ({data, language, handleLanguaje}) => {
+const PickerCountry = ({data, country, handleCountry}) => {
   return (
     <View style={styles.container}>
       <Picker
-        selectedValue={language}
-        onValueChange={(itemValue, itemIndex) => handleLanguaje(itemValue)}>
+        selectedValue={country}
+        onValueChange={(itemValue, itemIndex) => handleCountry(itemValue)}>
         {data.map((country, index) => {
           return (
             <Picker.Item
               key={index}
               label={country.country}
-              value={country.countryInfo.iso2}/>
+              value={country.country}/>
             )
           })
         }

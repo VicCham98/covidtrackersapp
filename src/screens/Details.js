@@ -7,7 +7,7 @@ import {Avatar} from 'react-native-paper';
 import {DataContext} from '../contexts/DataContext';
 
 const Details = ({navigation, route}) => {
-  const {currentCountry, data, language, handleLanguaje} = useContext(DataContext);
+  const {currentCountry, data, country, handleCountry} = useContext(DataContext);
 
   if (typeof currentCountry !== 'undefined'){
     return (
@@ -16,8 +16,8 @@ const Details = ({navigation, route}) => {
         <View style={styles.picker}>
           <PickerCountry
             data={data}
-            language={language}
-            handleLanguaje={handleLanguaje}
+            country={country}
+            handleCountry={handleCountry}
           />
         </View>
         <ScrollView>
